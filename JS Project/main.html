@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(173, 216, 230);
+            text-align: center;
+        }
+        .mainDiv {
+            font-size: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainDiv">
+        <form id="input-form">
+            <h1>Library Task</h1>
+            <label for="number-of-books">How many books do you want to add?</label>
+            <br><br>
+            <input type="number" id="number-of-books" name="number-of-books" placeholder="Enter number of books" required>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("input-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    let count = document.getElementById("number-of-books").value;
+    if (count > 0) {
+        localStorage.setItem("number-of-books", count);
+        localStorage.setItem("currentBook", 0);
+        localStorage.setItem("books", JSON.stringify([])); 
+        window.location.href = "inputPage.html";
+    } else {
+        alert("Please enter a valid number of books.");
+    }
+});
+    </script>
+</body>
+</html>

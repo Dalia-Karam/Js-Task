@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(173, 216, 230);
+            text-align: center;
+        }
+
+        .bookData {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="insertBookData" class="bookData">
+        <form id="bookForm">
+            <h2>Insert the data</h2>
+            <input type="hidden" id="numBooks">
+            <p>Book's Name:</p>
+            <input type="text" id="bookName" placeholder="Enter the book's name" required>
+            <p>Price:</p>
+            <input type="number" id="bookPrice" placeholder="Enter the book's price" required>
+            <p>Author's Name:</p>
+            <input type="text" id="bookAuthor" placeholder="Enter the author's name" required>
+            <span id="authorError" class="error-message"></span>
+            <p>Author's Email:</p>
+            <input type="email" id="authorEmail" placeholder="Enter the author's email" required>
+            <span id="emailError" class="error-message"></span>
+            <br><br>
+            <button type="button" class="addBtn" onclick="addBook()">Add</button>
+        </form>
+    </div>
+
+    <div id="bookForms" class="bookData" style="display: none;">
+        <h2>Book List</h2>
+        <table id="bookTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="project.js"></script>
+</body>
+
+</html>
